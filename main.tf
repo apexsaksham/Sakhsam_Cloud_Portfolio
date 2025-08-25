@@ -29,5 +29,6 @@ module "s3" {
 module "cloudfront" {
   source                         = "./modules/cloudfront"
   s3_bucket_regional_domain_name = module.s3.s3_bucket_regional_domain_name
+  acm_certificate_arn            = "arn:aws:acm:us-east-1:183295420353:certificate/42bb320f-63f4-4315-b486-392b5595e10a"
 
 }

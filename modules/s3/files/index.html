@@ -55,12 +55,32 @@
     /* profile card */
     .profile{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:16px;padding:18px;text-align:center}
     .photo{width:140px;height:140px;border-radius:50%;background:linear-gradient(180deg,#071826,#0b2130);display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(109,219,255,0.12);overflow:hidden}
-    .photo img{width:100%;height:100%;object-fit:cover}
+    .photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
     .profile h4{margin:12px 0 2px;color:#eaf6ff}
     .profile p{margin:0;color:var(--muted);font-size:14px}
     .socials{display:flex;gap:10px;justify-content:center;margin-top:12px}
     .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;font-weight:600}
-    .instagram-highlight{background:linear-gradient(90deg,#ff7a7a,#ffb07a);color:#061018}
+    .instagram-highlight{
+  background: linear-gradient(45deg, #324799, #4843b7, #6236a4, #9b2571, #cd1058, #d91a1a, #e04935, #e05d32, #f48b3a, #ffcd6b, #324799, #4843b7, #6236a4) !important;
+  background-size: 400% 400% !important;
+  color:#ffffff !important;
+  font-weight:bold !important;
+  animation: gradientShift 4s ease infinite !important;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
     /* sections */
     section{margin-top:36px}
@@ -117,7 +137,7 @@
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">Sak</div>
+        <div class="logo">☁️</div>
         <div>
           <div class="name">Saksham Singh</div>
           <div class="muted">Aspiring Cloud & DevOps Engineer</div>
@@ -148,16 +168,16 @@
         </div>
 
         <aside class="profile reveal" id="profileCard">
-          <div class="photo" id="photoPlaceholder" title="Upload your photo by replacing the image inside .photo">
+          <div class="photo" id="photoPlaceholder" title="">
             <!-- Replace src below with your photo -->
-            <img src="assets/profile-placeholder.jpg" alt="Saksham's photo">
+            <img src="saksham.png" alt="Saksham's photo">
           </div>
           <h4>Saksham Singh</h4>
           <p class="muted">Fresher · Cloud & DevOps</p>
 
           <div class="socials">
-            <a class="instagram-highlight" href="https://instagram.com/becomingsakshamm" target="_blank" rel="noopener">📸 @becomingsakshamm</a>
-            <a href="https://github.com/" target="_blank" rel="noopener">🐙 GitHub</a>
+            <a class="instagram-highlight" href="https://instagram.com/becomingsakshamm" target="_blank" rel="noopener"> @becomingsakshamm</a>
+            <a href="https://github.com/apexsaksham" target="_blank" rel="noopener">🐙 GitHub</a>
           </div>
 
         </aside>
@@ -192,7 +212,7 @@
             <p class="muted">Quick actions to reach me — resume, email & social links.</p>
             <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
               <button class="btn" id="copyEmail">Copy Email</button>
-              <a class="btn secondary" href="mailto:hello@saksham.dev">Email Me</a>
+              <a class="btn secondary" href="mailto:saksham26singh@gmail.com">Email Me</a>
             </div>
 
             <div style="margin-top:12px;color:var(--muted)">Instagram (highlighted):
@@ -257,17 +277,18 @@
           <div class="card project">
             <div class="project-header">
               <div>
-                <h4>Terraform Driven Infra + GitHub Actions</h4>
+                <h4>Personal Portfolio Deployment</h4>
                 <div class="meta">Automated provisioning with Terraform and CI via GitHub Actions.</div>
               </div>
-              <div class="pill">IaC • CI/CD</div>
+              <div class="pill">AWS • IaC • CI/CD</div>
             </div>
-            <p class="muted">Wrote modular Terraform modules, state stored in S3 with remote locking (DynamoDB). Workflows included plan & apply gated by PR checks using GitHub Actions.</p>
+            <p class="muted">
+
+Deployed personal portfolio website on AWS using S3 for static hosting and CloudFront for global content delivery. Implemented Infrastructure as Code with modular Terraform configuration. Automated CI/CD pipeline includes plan & apply workflows gated by PR checks using GitHub Actions.</p>
             <div class="actions">
-              <button class="btn" data-demo="demo2">View Terraform Plan</button>
-              <a class="btn secondary" href="#skills">See Tools</a>
-            </div>
-          </div>
+  <a class="btn" href="https://sakshamportfolio.cloud" target="_blank" rel="noopener noreferrer">View Live Site</a>
+  
+</div>
 
           <div class="card project">
             <div class="project-header">
@@ -304,13 +325,13 @@
                 <button class="btn secondary" type="button" id="formReset">Reset</button>
                 <div id="formStatus" style="margin-left:12px;color:var(--muted)"></div>
               </div>
-              <small style="color:var(--muted);margin-top:8px;display:block">Note: Replace FORM_ENDPOINT in the script with your Formspree or EmailJS endpoint to enable real sending. A fallback mailto will open if not configured.</small>
+              <small style="color:var(--muted);margin-top:8px;display:block"></small>
             </form>
           </div>
 
           <div class="card">
             <h4>Quick Links & Info</h4>
-            <p class="muted">Email: <strong id="emailText">hello@saksham.dev</strong> <button class="btn secondary" id="copyEmail2">Copy</button></p>
+            <p class="muted">Email: <strong id="emailText">saksham26singh@gmail.com</strong> <button class="btn secondary" id="copyEmail2">Copy</button></p>
             <p class="muted">Instagram: <a href="https://instagram.com/becomingsakshamm" target="_blank">@becomingsakshamm</a></p>
             <div style="margin-top:12px">
               <strong>Certifications</strong>
@@ -327,7 +348,7 @@
     </main>
 
     <footer>
-      <div>© 2025 <strong>Saksham Singh</strong> — Crafted in the Cloud ☁</div>
+      <div>© 2025 <strong>Saksham Singh Pundhir</strong> — Crafted in the Cloud ☁</div>
       
   </div>
 
@@ -366,11 +387,56 @@
       document.getElementById('contact').scrollIntoView({behavior:'smooth'});
     });
 
-    // Copy email
-    function copyText(t){navigator.clipboard.writeText(t).then(()=>{alert('Copied: '+t)},()=>{prompt('Copy this email',t)})}
-    document.getElementById('copyEmail').addEventListener('click',()=>copyText('hello@saksham.dev'))
-    document.getElementById('copyEmail2').addEventListener('click',()=>copyText('hello@saksham.dev'))
+    // Copy email - Updated to work without permissions
+function copyText(email) {
+  const textarea = document.createElement('textarea');
+  textarea.value = email;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      // Show feedback without alert
+      showCopyFeedback(email);
+    }
+  } catch (err) {
+    // Fallback: show in prompt for manual copy
+    prompt('Copy this email:', email);
+  }
+  
+  document.body.removeChild(textarea);
+}
 
+function showCopyFeedback(email) {
+  // Create a temporary "Copied!" notification
+  const notification = document.createElement('div');
+  notification.textContent = 'Copied: ' + email;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 9999;
+    font-size: 14px;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  // Remove notification after 2 seconds
+  setTimeout(() => {
+    document.body.removeChild(notification);
+  }, 2000);
+}
+
+document.getElementById('copyEmail').addEventListener('click', () => copyText('saksham26singh@gmail.com'))
+document.getElementById('copyEmail2').addEventListener('click', () => copyText('saksham26singh@gmail.com'))
     // Contact form - basic client-side send
     const FORM_ENDPOINT = 'https://formspree.io/f/xwpqdjwj';// <-- Replace with your Formspree / Netlify Forms endpoint
     const contactForm = document.getElementById('contactForm');
@@ -386,11 +452,11 @@
           const res = await fetch(FORM_ENDPOINT, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
           if(res.ok){ formStatus.textContent='Message sent — thanks!'; contactForm.reset(); }
           else { throw new Error('Failed'); }
-        }catch(err){ formStatus.textContent='Failed to send. Try email.'; window.location = `mailto:hello@saksham.dev?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}` }
+        }catch(err){ formStatus.textContent='Failed to send. Try email.'; window.location = `mailto:saksham26singh@gmail.com?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}` }
       } else {
         // fallback to mailto
         formStatus.textContent='Opening email client...';
-        window.location = `mailto:hello@saksham.dev?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}`
+        window.location = `mailto:saksham26singh@gmail.com?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}`
       }
     });
     document.getElementById('formReset').addEventListener('click',()=>{contactForm.reset();formStatus.textContent='';})

@@ -57,13 +57,14 @@ resource "aws_cloudfront_distribution" "this" {
   # SSL/TLS settings
   # Using default CloudFront cert (*.cloudfront.net)
   # -------------------------------
-  viewer_certificate {
-    cloudfront_default_certificate = true
+   viewer_certificate {
+    acm_certificate_arn      = var.acm_certificate_arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   # -------------------------------
-  # Optional: aliases (for custom domains)
-  # If not using your own domain, just leave empty []
+  # Custom domain - CHANGED
   # -------------------------------
-  aliases = []
+  aliases = ["sakshamportfolio.cloud"]
 }
